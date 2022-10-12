@@ -26,7 +26,7 @@ app.use('/uploads', express.static('uploads'))
 app.use(router)
 app.use(ErrorMeddleware)
 
-app.listen(process.env.PORT 4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
     return console.log(err);
   }
