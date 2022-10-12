@@ -9,7 +9,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0.nzohycl.mongodb.net/Blog?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URL)
   .then(() => console.log('server start'))
   .catch(e => console.log(e))
 
@@ -26,7 +26,7 @@ app.use('/uploads', express.static('uploads'))
 app.use(router)
 app.use(ErrorMeddleware)
 
-app.listen(4444, (err) => {
+app.listen(process.env.PORT 4444, (err) => {
   if (err) {
     return console.log(err);
   }
